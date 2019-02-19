@@ -1,0 +1,48 @@
+﻿@model WebCursos.Models.Lección
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lección</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lección1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lección1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComentarioHtml)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComentarioHtml)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HayEjercicios)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HayEjercicios)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pos)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuloNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModuloNavigation.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

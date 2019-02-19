@@ -1,0 +1,48 @@
+﻿@model WebCursos.Models.SubCategoria
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubCategoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoria1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoria1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComentarioHtml)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComentarioHtml)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenMiniatura)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImagenMiniatura)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenGrande)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImagenGrande)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoriaNavigation.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
