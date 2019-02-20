@@ -1,0 +1,36 @@
+﻿@model ProyectoVueling.Models.ModulosCursoAmedida
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ModulosCursoAmedida</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCursoAmedidaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCursoAmedidaNavigation.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdModuloAmedidaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdModuloAmedidaNavigation.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProfesorNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdProfesorNavigation.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
