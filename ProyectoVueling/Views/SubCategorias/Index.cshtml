@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.SubCategoria1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ComentarioHtml)
+                @Html.Raw(item.ComentarioHtml)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImagenMiniatura)
