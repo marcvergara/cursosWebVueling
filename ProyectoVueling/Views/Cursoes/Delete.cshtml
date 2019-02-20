@@ -1,0 +1,51 @@
+﻿@model ProyectoVueling.Models.Curso
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComentarioHtml)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComentarioHtml)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenMiniatura)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImagenMiniatura)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenGrande)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImagenGrande)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoriaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoriaNavigation.Id)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
