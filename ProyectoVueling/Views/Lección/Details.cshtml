@@ -20,13 +20,13 @@
             @Html.DisplayNameFor(model => model.ComentarioHtml)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ComentarioHtml)
+            @Html.Raw(Model.ComentarioHtml)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.HayEjercicios)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.HayEjercicios)
+            @Html.CheckBox("Hay Ejercicios", (bool)Model.HayEjercicios.GetValueOrDefault())
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Pos)
@@ -38,7 +38,7 @@
             @Html.DisplayNameFor(model => model.ModuloNavigation)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ModuloNavigation.Id)
+            @Html.DisplayFor(model => model.ModuloNavigation.Modulo1)
         </dd>
     </dl>
 </div>

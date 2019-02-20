@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProyectoVueling.Models
+namespace ProyectoVueling.Metadatos
 {
-    public partial class Lección
+    public class LeccionMetadatos
     {
         [Display(Name = "Leccion")]
         [Required]
@@ -23,5 +26,7 @@ namespace ProyectoVueling.Models
         public int? Pos { get; set; }
 
         public Modulo ModuloNavigation { get; set; }
+        [ModelMetadataType(typeof(LeccionMetadatos))]
+        public partial class Lección { }
     }
 }

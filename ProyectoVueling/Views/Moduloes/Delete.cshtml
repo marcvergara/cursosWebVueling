@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.ComentarioHtml)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ComentarioHtml)
+            @Html.Raw(Model.DuracionEnMinutos)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.DuracionEnMinutos)
@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.HayEjercicios)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.HayEjercicios)
+            @Html.CheckBox("Hay Ejercicios", (bool)Model.HayEjercicios.GetValueOrDefault())
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Pos)
@@ -45,13 +45,13 @@
             @Html.DisplayNameFor(model => model.CursoNavigation)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.CursoNavigation.Id)
+            @Html.DisplayFor(model => model.CursoNavigation.Curso1)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.IdProfesorNavigation)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.IdProfesorNavigation.Id)
+            @Html.DisplayFor(model => model.IdProfesorNavigation.Nombre)
         </dd>
     </dl>
     
