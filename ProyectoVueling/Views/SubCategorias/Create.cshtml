@@ -19,15 +19,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
-                <select asp-for="Categoria" class ="form-control" asp-items="ViewBag.Categoria"></select>
+                <select asp-for="Categoria" class="form-control" asp-items="ViewBag.Categoria"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ComentarioHtml" class="control-label"></label>
-                <input asp-for="ComentarioHtml" class="form-control" />
+                <textarea asp-for="ComentarioHtml" id="idComentarioHtml" class="form-control" rows="8" cols="140"></textarea>
                 <span asp-validation-for="ComentarioHtml" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagenMiniatura" class="control-label"></label>
+                <label asp-for="ImagenMiniatura" id="idThumbnail" class="control-label"></label>
                 <input asp-for="ImagenMiniatura" class="form-control" />
                 <span asp-validation-for="ImagenMiniatura" class="text-danger"></span>
             </div>
@@ -48,5 +48,13 @@
 </div>
 
 @section Scripts {
+
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "#idComentarioHtml",
+            plugins: "code"
+        });
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
