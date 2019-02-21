@@ -12538,11 +12538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CTA\\source\\repos\\ProyectoVueling\\ProyectoVueling\\ProyectoVueling.csproj",
+      "projectUniqueName": "C:\\Users\\CTA\\Documents\\cursosWebVueling\\ProyectoVueling\\ProyectoVueling.csproj",
       "projectName": "ProyectoVueling",
-      "projectPath": "C:\\Users\\CTA\\source\\repos\\ProyectoVueling\\ProyectoVueling\\ProyectoVueling.csproj",
+      "projectPath": "C:\\Users\\CTA\\Documents\\cursosWebVueling\\ProyectoVueling\\ProyectoVueling.csproj",
       "packagesPath": "C:\\Users\\CTA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CTA\\source\\repos\\ProyectoVueling\\ProyectoVueling\\obj\\",
+      "outputPath": "C:\\Users\\CTA\\Documents\\cursosWebVueling\\ProyectoVueling\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

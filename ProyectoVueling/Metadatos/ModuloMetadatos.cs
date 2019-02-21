@@ -1,19 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProyectoVueling.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProyectoVueling.Models
+namespace ProyectoVueling.Metadatos
 {
-    public partial class Modulo
+    public class ModuloMetadatos
     {
-        public Modulo()
-        {
-            Lección = new HashSet<Lección>();
-            ModulosCursoAmedida = new HashSet<ModulosCursoAmedida>();
-            ModulosCursoCerrado = new HashSet<ModulosCursoCerrado>();
-        }
-
         public int Id { get; set; }
         [Display(Name = "Titulo del módulo")]
         [Required]
@@ -38,4 +35,6 @@ namespace ProyectoVueling.Models
         public ICollection<ModulosCursoAmedida> ModulosCursoAmedida { get; set; }
         public ICollection<ModulosCursoCerrado> ModulosCursoCerrado { get; set; }
     }
+    [ModelMetadataType(typeof(ModuloMetadatos))]
+    public partial class Modulo { }
 }
