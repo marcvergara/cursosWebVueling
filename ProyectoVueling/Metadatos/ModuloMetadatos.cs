@@ -21,7 +21,7 @@ namespace ProyectoVueling.Metadatos
         public int? Curso { get; set; }
         [Display(Name = "Duración en Minutos")]
         public int? DuracionEnMinutos { get; set; }
-        [DisplayName("Se incluyen ejercicios en esta lección")]
+        [DisplayName("Ejercicios")]
         public bool? HayEjercicios { get; set; }
         [Display(Name = "Posición en el Curso")]
         public int? Pos { get; set; }

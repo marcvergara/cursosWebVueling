@@ -20,7 +20,7 @@ namespace ProyectoVueling.Metadatos
 
         [Display(Name = "Modulo")]
         public int? Modulo { get; set; }
-        [DisplayName("Se incluyen ejercicios en esta lección")]
+        [DisplayName("Ejercicios")]
         public bool? HayEjercicios { get; set; }
         [Display(Name = "Posición en el Curso")]
         public int? Pos { get; set; }
