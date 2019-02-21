@@ -47,7 +47,7 @@ namespace ProyectoVueling.Controllers
         // GET: Lección/Create
         public IActionResult Create()
         {
-            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Id");
+            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Modulo1");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace ProyectoVueling.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Id", lección.Modulo);
+            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Modulo1", lección.Modulo);
             return View(lección);
         }
 
@@ -81,7 +81,7 @@ namespace ProyectoVueling.Controllers
             {
                 return NotFound();
             }
-            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Id", lección.Modulo);
+            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Modulo1", lección.Modulo);
             return View(lección);
         }
 
@@ -117,7 +117,7 @@ namespace ProyectoVueling.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Id", lección.Modulo);
+            ViewData["Modulo"] = new SelectList(_context.Modulo, "Id", "Modulo1", lección.Modulo);
             return View(lección);
         }
 
