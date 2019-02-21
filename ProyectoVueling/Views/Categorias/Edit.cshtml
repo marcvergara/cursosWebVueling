@@ -1,7 +1,7 @@
 ﻿@model ProyectoVueling.Models.Categoria
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
 <h2>Edit</h2>
@@ -20,35 +20,57 @@
             </div>
             <div class="form-group">
                 <label asp-for="ComentarioHtml" class="control-label"></label>
-                <input asp-for="ComentarioHtml" class="form-control" />
+                <textarea asp-for="ComentarioHtml" class="form-control" rows="8" cols="140"></textarea>
+
                 <span asp-validation-for="ComentarioHtml" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenMiniatura" class="control-label"></label>
-                <input asp-for="ImagenMiniatura" class="form-control" />
+                </br>
+                @{
+                    if (Model.ImagenMiniatura != null)
+                    {
+                        var bytes = Convert.ToBase64String(Model.ImagenMiniatura);
+                        var myString = "data:image/png;base64," + bytes;
+
+                        <img src="@myString" width="100" height="100" />
+                    }
+                }
+                <input asp-for="ImagenMiniatura" class="form-control" type="file"  id="imagenMiniatura" name="imagenMiniatura"/>
                 <span asp-validation-for="ImagenMiniatura" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenGrande" class="control-label"></label>
-                <input asp-for="ImagenGrande" class="form-control" />
+                </br>
+                @{
+                    if (Model.ImagenGrande != null)
+                    {
+                        var bytes = Convert.ToBase64String(Model.ImagenGrande);
+                        var myString = "data:image/png;base64," + bytes;
+
+                        <img src="@myString" width="100" height="100" />
+                    }
+                }
+                <input asp-for="ImagenGrande" class="form-control" type="file" />
                 <span asp-validation-for="ImagenGrande" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
+                <input type="color" asp-for="Color" class="form-control" />
                 <span asp-validation-for="Color" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>tinymce.init({selector: 'textarea'});</script>
 }

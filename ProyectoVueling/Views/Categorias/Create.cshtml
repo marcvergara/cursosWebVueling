@@ -1,7 +1,7 @@
 ﻿@model ProyectoVueling.Models.Categoria
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
 <h2>Create</h2>
@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
@@ -19,27 +19,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="Categoria1" class="control-label"></label>
-                <input asp-for="Categoria1" class="form-control" />
+                <input asp-for="Categoria1" class="form-control"/>
                 <span asp-validation-for="Categoria1" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ComentarioHtml" class="control-label"></label>
-                <input asp-for="ComentarioHtml" class="form-control" />
+                <textarea asp-for="ComentarioHtml" class="form-control" rows="8" cols="140"></textarea>
+              
                 <span asp-validation-for="ComentarioHtml" class="text-danger"></span>
             </div>
             <div class="form-group">
+
                 <label asp-for="ImagenMiniatura" class="control-label"></label>
-                <input asp-for="ImagenMiniatura" class="form-control" />
+                <input asp-for="ImagenMiniatura" type="file" />
                 <span asp-validation-for="ImagenMiniatura" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenGrande" class="control-label"></label>
-                <input asp-for="ImagenGrande" class="form-control" />
+                <input asp-for="ImagenGrande" type="file" />
                 <span asp-validation-for="ImagenGrande" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
+                <input type="color" asp-for="Color" class="form-control" />
                 <span asp-validation-for="Color" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,9 +52,13 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>tinymce.init({selector: 'textarea'});</script>
 }
+
+
+
