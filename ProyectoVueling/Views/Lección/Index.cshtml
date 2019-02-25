@@ -40,7 +40,19 @@
                 @Html.DisplayFor(modelItem => item.ComentarioHtml)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HayEjercicios)
+                @*@Html.DisplayFor(modelItem => item.HayEjercicios)*@
+                @if (item.HayEjercicios == true)
+                {
+                    <p>Si</p>
+                }
+                else if (item.HayEjercicios == false)
+                {
+                    <p>No</p>
+                }
+                else
+                {
+                    <p></p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Pos)
