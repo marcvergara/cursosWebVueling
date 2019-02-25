@@ -48,8 +48,8 @@ namespace ProyectoVueling.Controllers
         // GET: Moduloes/Create
         public IActionResult Create()
         {
-            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Id");
-            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Id");
+            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Curso1");
+            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Nombre");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace ProyectoVueling.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Id", modulo.Curso);
-            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Id", modulo.IdProfesor);
+            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Curso1", modulo.Curso);
+            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Nombre", modulo.IdProfesor);
             return View(modulo);
         }
 
@@ -84,8 +84,8 @@ namespace ProyectoVueling.Controllers
             {
                 return NotFound();
             }
-            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Id", modulo.Curso);
-            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Id", modulo.IdProfesor);
+            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Curso1", modulo.Curso);
+            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Nombre", modulo.IdProfesor);
             return View(modulo);
         }
 
@@ -121,8 +121,8 @@ namespace ProyectoVueling.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Id", modulo.Curso);
-            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Id", modulo.IdProfesor);
+            ViewData["Curso"] = new SelectList(_context.Curso, "Id", "Curso1", modulo.Curso);
+            ViewData["IdProfesor"] = new SelectList(_context.Profesor, "Id", "Nombre", modulo.IdProfesor);
             return View(modulo);
         }
 

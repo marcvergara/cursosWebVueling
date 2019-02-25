@@ -10,11 +10,12 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        @using (Html.BeginForm())
+        {
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
+                <input asp-for="Id" class="form-control" type="number" min="0" />
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,36 +25,38 @@
             </div>
             <div class="form-group">
                 <label asp-for="ComentarioHtml" class="control-label"></label>
-                <input asp-for="ComentarioHtml" class="form-control" />
+                <textarea asp-for="ComentarioHtml" class="form-control" rows="8" cols="140"></textarea>
                 <span asp-validation-for="ComentarioHtml" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Curso" class="control-label"></label>
-                <select asp-for="Curso" class ="form-control" asp-items="ViewBag.Curso"></select>
+                <select asp-for="Curso" class="form-control" asp-items="ViewBag.Curso"></select>
             </div>
             <div class="form-group">
                 <label asp-for="DuracionEnMinutos" class="control-label"></label>
-                <input asp-for="DuracionEnMinutos" class="form-control" />
+                <input asp-for="DuracionEnMinutos" class="form-control" type="number" min="0" />
                 <span asp-validation-for="DuracionEnMinutos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HayEjercicios" class="control-label"></label>
-                <input asp-for="HayEjercicios" class="form-control" />
-                <span asp-validation-for="HayEjercicios" class="text-danger"></span>
+                <div class="checkbox" align="center">
+                    @Html.CheckBox("HayEjercicios", true)
+                </div>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Pos" class="control-label"></label>
-                <input asp-for="Pos" class="form-control" />
+                <input asp-for="Pos" class="form-control" type="number" min="0" />
                 <span asp-validation-for="Pos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdProfesor" class="control-label"></label>
-                <select asp-for="IdProfesor" class ="form-control" asp-items="ViewBag.IdProfesor"></select>
+                <select asp-for="IdProfesor" class="form-control" asp-items="ViewBag.IdProfesor"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </form>
+        }
     </div>
 </div>
 
@@ -62,5 +65,9 @@
 </div>
 
 @section Scripts {
+        <script>tinymce.init({
+    selector: 'textarea'
+     
+            });</script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
