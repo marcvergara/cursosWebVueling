@@ -1,17 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProyectoVueling.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProyectoVueling.Models
+namespace ProyectoVueling.Metadatos
 {
-    public partial class Curso
+    public class CursoMetadatos
     {
-        public Curso()
-        {
-            CursoImpartido = new HashSet<CursoImpartido>();
-            Modulo = new HashSet<Modulo>();
-            ModulosCursoCerrado = new HashSet<ModulosCursoCerrado>();
-        }
 
         public int Id { get; set; }
         [Display(Name = "Titulo del Curso")]
@@ -31,4 +29,6 @@ namespace ProyectoVueling.Models
         public ICollection<Modulo> Modulo { get; set; }
         public ICollection<ModulosCursoCerrado> ModulosCursoCerrado { get; set; }
     }
+    [ModelMetadataType(typeof(CursoMetadatos))]
+    public partial class Curso { }
 }
