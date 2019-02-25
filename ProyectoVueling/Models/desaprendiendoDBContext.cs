@@ -16,6 +16,7 @@ namespace ProyectoVueling.Models
         }
 
         public virtual DbSet<Categoria> Categoria { get; set; }
+        // public virtual DbSet<CategoriaMetadata> Categoria { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Curso> Curso { get; set; }
         public virtual DbSet<CursoAmedida> CursoAmedida { get; set; }
