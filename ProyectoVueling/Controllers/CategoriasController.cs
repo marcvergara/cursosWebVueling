@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoVueling.Models;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProyectoVueling.Controllers
 {
@@ -53,7 +55,7 @@ namespace ProyectoVueling.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] CategoriaMetadata categoria)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +87,7 @@ namespace ProyectoVueling.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] CategoriaMetadata categoria)
         {
             if (id != categoria.Id)
             {
