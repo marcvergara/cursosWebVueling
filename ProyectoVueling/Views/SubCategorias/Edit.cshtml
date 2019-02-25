@@ -50,11 +50,10 @@
 </div>
 
 @section Scripts {
-    <script type="text/javascript">
+    <script>
         tinymce.init({
-            selector: "#idComentarioHtml",
-            plugins: "code"
-        });
-    </script>
+            selector: 'textarea'
+
+        });</script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -30,9 +30,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="HayEjercicios" class="control-label"></label>
-                <input asp-for="HayEjercicios" class="form-control" />
-                <span asp-validation-for="HayEjercicios" class="text-danger"></span>
+                <div class="checkbox" align="center">
+                    @Html.CheckBox("HayEjercicios", true)
+                </div>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Pos" class="control-label"></label>
                 <input asp-for="Pos" class="form-control" />
