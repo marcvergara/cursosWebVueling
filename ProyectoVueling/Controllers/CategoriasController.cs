@@ -48,7 +48,7 @@ namespace ProyectoVueling.Controllers
         // GET: Categorias/Create
         public IActionResult Create()
         {
-            // Added paramerter new Categoria()
+            // Added paramerter new Categoria() 
             return View(new Categoria());
         }
 
@@ -59,8 +59,6 @@ namespace ProyectoVueling.Controllers
         [ValidateAntiForgeryToken]      //[Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,Color")] 
         public async Task<IActionResult> Create(Categoria categoria, IFormFile ImagenMiniatura, IFormFile ImagenGrande)
         {
-            
-
             if (ImagenGrande != null)
             {
                 categoria.ImagenGrande = GetByteArrayFromImage(ImagenGrande);
