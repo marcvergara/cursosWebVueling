@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ProyectoVueling.Models;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoVueling.Controllers
 {
@@ -47,18 +48,32 @@ namespace ProyectoVueling.Controllers
         // GET: Categorias/Create
         public IActionResult Create()
         {
-            return View();
+            // Added paramerter new Categoria()
+            return View(new Categoria());
         }
 
         // POST: Categorias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] CategoriaMetadata categoria)
+        [ValidateAntiForgeryToken]      //[Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,Color")] 
+        public async Task<IActionResult> Create(Categoria categoria, IFormFile ImagenMiniatura, IFormFile ImagenGrande)
         {
+            
+
+            if (ImagenGrande != null)
+            {
+                categoria.ImagenGrande = GetByteArrayFromImage(ImagenGrande);
+            }
+
+            if (ImagenMiniatura != null)
+            {
+                categoria.ImagenMiniatura = GetByteArrayFromImage(ImagenMiniatura);
+            }
+
             if (ModelState.IsValid)
             {
+                categoria.Id = (_context.Categoria.Select(x => x.Id).Max()) + 1;
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,11 +102,21 @@ namespace ProyectoVueling.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Categoria1,ComentarioHtml,ImagenMiniatura,ImagenGrande,Color")] CategoriaMetadata categoria)
+        public async Task<IActionResult> Edit(int id, Categoria categoria, IFormFile ImagenMiniatura, IFormFile ImagenGrande)
         {
             if (id != categoria.Id)
             {
                 return NotFound();
+            }
+
+            if (ImagenGrande != null)
+            {
+                categoria.ImagenGrande = GetByteArrayFromImage(ImagenGrande);
+            }
+
+            if (ImagenMiniatura != null)
+            {
+                categoria.ImagenMiniatura = GetByteArrayFromImage(ImagenMiniatura);
             }
 
             if (ModelState.IsValid)
@@ -149,6 +174,15 @@ namespace ProyectoVueling.Controllers
         private bool CategoriaExists(int id)
         {
             return _context.Categoria.Any(e => e.Id == id);
+        }
+
+        private byte[] GetByteArrayFromImage(IFormFile file)
+        {
+            using (var target = new MemoryStream())
+            {
+                file.CopyTo(target);
+                return target.ToArray();
+            }
         }
     }
 }

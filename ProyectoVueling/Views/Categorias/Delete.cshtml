@@ -27,13 +27,31 @@
             @Html.DisplayNameFor(model => model.ImagenMiniatura)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImagenMiniatura)
+            @{
+
+                if (Model.ImagenMiniatura != null)
+                {
+                    var bytes = Convert.ToBase64String(Model.ImagenMiniatura);
+                    var myString = "data:image/png;base64," + bytes;
+
+                    <img src="@myString" width="100%" />
+                }
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ImagenGrande)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImagenGrande)
+            @{
+
+                if (Model.ImagenGrande != null)
+                {
+                    var bytes = Convert.ToBase64String(Model.ImagenGrande);
+                    var myString = "data:image/png;base64," + bytes;
+
+                    <img src="@myString" width="100%" />
+                }
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Color)

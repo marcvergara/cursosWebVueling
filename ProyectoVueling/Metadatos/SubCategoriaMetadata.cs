@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoVueling.Models;
 
-namespace ProyectoVueling.Models
+namespace ProyectoVueling.Metadatos
 {
     [ModelMetadataType(typeof(SubCategoriaMetadata))]
     public partial class SubCategoria
