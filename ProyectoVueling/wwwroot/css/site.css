@@ -35,3 +35,12 @@ body {
         display: none;
     }
 }
+
+#logoVueling{
+    position: center;
+}
+
+.col-md-8 custom-heading3 {
+    margin-left: auto;
+    margin-right: auto;
+}

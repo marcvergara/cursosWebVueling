@@ -9,6 +9,5 @@ namespace ProyectoVueling.Repositories
     {
         Task<T> GetAsync(int id);
         Task<IEnumerable<T>> GetAsync();
-
     }
 }
