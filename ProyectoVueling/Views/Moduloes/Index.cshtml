@@ -50,7 +50,18 @@
                     @Html.DisplayFor(modelItem => item.DuracionEnMinutos)
                 </td>
                 <td>
-                    @Html.CheckBox("Hay Ejercicios", (bool)item.HayEjercicios.GetValueOrDefault())
+                    @if (item.HayEjercicios == true)
+                    {
+                        <p>Si</p>
+                    }
+                    else if (item.HayEjercicios == false)
+                    {
+                        <p>No</p>
+                    }
+                    else
+                    {
+                        <p></p>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Pos)

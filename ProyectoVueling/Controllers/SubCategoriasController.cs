@@ -47,7 +47,7 @@ namespace ProyectoVueling.Controllers
         // GET: SubCategorias/Create
         public IActionResult Create()
         {
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Id");
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Categoria1");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace ProyectoVueling.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Id", subCategoria.Categoria);
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Categoria1", subCategoria.Categoria);
             return View(subCategoria);
         }
 
@@ -81,7 +81,7 @@ namespace ProyectoVueling.Controllers
             {
                 return NotFound();
             }
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Id", subCategoria.Categoria);
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Categoria1", subCategoria.Categoria);
             return View(subCategoria);
         }
 
@@ -117,7 +117,7 @@ namespace ProyectoVueling.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Id", subCategoria.Categoria);
+            ViewData["Categoria"] = new SelectList(_context.Categoria, "Id", "Categoria1", subCategoria.Categoria);
             return View(subCategoria);
         }
 
