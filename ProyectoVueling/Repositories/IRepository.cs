@@ -7,7 +7,7 @@ namespace ProyectoVueling.Repositories
 {
     public interface IRepository<T>
     {
-        Task<T> Get(int id);
-        Task<IEnumerable<T>> Get();
+        Task<T> GetAsync(int id);
+        Task<IEnumerable<T>> GetAsync();
     }
 }
