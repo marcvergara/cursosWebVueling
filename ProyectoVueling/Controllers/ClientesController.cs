@@ -52,11 +52,12 @@ namespace ProyectoVueling.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RazonSocial,PosicionGeodesica,Correo,Telefono")] Cliente cliente)
+        [ValidateAntiForgeryToken] // [Bind("Id,RazonSocial,PosicionGeodesica,Correo,Telefono")] 
+        public async Task<IActionResult> Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                cliente.Id = (_context.Cliente.Select(x => x.Id).Max()) + 1;
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -84,8 +85,8 @@ namespace ProyectoVueling.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RazonSocial,PosicionGeodesica,Correo,Telefono")] Cliente cliente)
+        [ValidateAntiForgeryToken] // [Bind("Id,RazonSocial,PosicionGeodesica,Correo,Telefono")] 
+        public async Task<IActionResult> Edit(int id, Cliente cliente)
         {
             if (id != cliente.Id)
             {
