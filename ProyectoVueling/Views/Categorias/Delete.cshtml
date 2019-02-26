@@ -21,25 +21,41 @@
             @Html.DisplayNameFor(model => model.ComentarioHtml)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ComentarioHtml)
+            @Html.Raw(Model.ComentarioHtml)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ImagenMiniatura)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImagenMiniatura)
+            @{
+                if (Model.ImagenMiniatura != null)
+                {
+                    var bytes = Convert.ToBase64String(Model.ImagenMiniatura);
+                    var myString = "data:image/png;base64," + bytes;
+
+                    <img src="@myString" width="50" height="50" />
+                }
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ImagenGrande)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImagenGrande)
+            @{
+                if (Model.ImagenGrande != null)
+                {
+                    var bytes = Convert.ToBase64String(Model.ImagenGrande);
+                    var myString = "data:image/png;base64," + bytes;
+
+                    <img src="@myString" width="100" height="100" />
+                }
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Color)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Color)
+                <canvas id="myCanvas" width="30" height="30" style="border:1px solid #000000; background-color:@Model.Color;"></canvas>
         </dd>
     </dl>
     

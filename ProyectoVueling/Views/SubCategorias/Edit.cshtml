@@ -30,12 +30,33 @@
             </div>
             <div class="form-group">
                 <label asp-for="ImagenMiniatura" class="control-label"></label>
-                <input asp-for="ImagenMiniatura" class="form-control" />
+                </br>
+                @{
+                    if (Model.ImagenMiniatura != null)
+                    {
+                        var bytes = Convert.ToBase64String(Model.ImagenMiniatura);
+                        var myString = "data:image/png;base64," + bytes;
+
+                        <img src="@myString" width="100" height="100" />
+                    }
+                }
+                <input asp-for="ImagenMiniatura" class="form-control" type="file" id="imagenMiniatura" name="imagenMiniatura" />
+
                 <span asp-validation-for="ImagenMiniatura" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenGrande" class="control-label"></label>
-                <input asp-for="ImagenGrande" class="form-control" />
+                </br>
+                @{
+                    if (Model.ImagenGrande != null)
+                    {
+                        var bytes = Convert.ToBase64String(Model.ImagenGrande);
+                        var myString = "data:image/png;base64," + bytes;
+
+                        <img src="@myString" width="100" height="100" />
+                    }
+                }
+                <input asp-for="ImagenGrande" class="form-control" type="file" />
                 <span asp-validation-for="ImagenGrande" class="text-danger"></span>
             </div>
             <div class="form-group">
