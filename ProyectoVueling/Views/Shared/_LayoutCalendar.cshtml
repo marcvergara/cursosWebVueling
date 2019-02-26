@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @*<link href="~/Content/css" rel="stylesheet" type="text/css" />
-        <link href="~/bundles/modernizr" rel="stylesheet" type="text/css" />*@
-
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
@@ -17,8 +14,6 @@
     <!-- Full Calendar -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css" media="print" />
-
-    @*<link href="~/Content/css/custom-style" rel="stylesheet" type="text/css" />*@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -58,7 +53,7 @@
         <hr />
         <footer>
             <center>
-                <p><strong>Copyright © @DateTime.Now.Year - <a href="https://fullcalendar.io/">Calendario que funciona</a>.</strong> All rights reserved.</p>
+                <p><strong>Copyright © @DateTime.Now.Year - </strong> All rights reserved.</p>
             </center>
         </footer>
     </div>
@@ -74,8 +69,10 @@
 
     <!-- Full Calendar -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.js"></script>
-    <script src="~/js/script-custom-calendar.js" type="text/javascript"></script>
-
+    <script src='~/js/fullcalendar.js' type="text/javascript"></script>
+    <script src='~/js/script-custom-calendar.js' type="text/javascript"></script>
+    <script src='~/js/locale-all.js' type="text/javascript"></script>
     @RenderSection("scripts", required: false)
+
 </body>
-</html>  
+    </html>
