@@ -8,6 +8,6 @@ namespace ProyectoVueling.Repositories
     public interface IRepository<T>
     {
         Task<T> Get(int id);
-        IEnumerable<T> Get();
+        Task<IEnumerable<T>> Get();
     }
 }
