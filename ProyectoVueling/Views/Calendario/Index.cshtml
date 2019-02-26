@@ -10,7 +10,7 @@
         <div class="col-md-8  custom-heading3">
             <h3>
                 <i class="fa fa-calendar"></i>
-                <span>ASP.NET MVC5 - Full Calendar JQuery Plugin</span>
+                <span>CALENDARIO</span>
             </h3>
         </div>
     </div>
@@ -18,30 +18,15 @@
 
 <div class="row">
     <section class="col-md-12 col-md-push-0">
-        <partial name="~/Views/Shared/_CalendarPartial.cshtml" />
-        @*@Html.Partial("_CalendarPartial")
-            @{ Html.RenderPartial("_CalendarPartial"); }*@
+        <div class="row">
+            <div class="col-xs-12 col-xs-push-0">
+                <div class="box box-primary">
+                    <div class="box-body no-padding">
+                        <!-- THE CALENDAR -->
+                        <div id="calendar"></div>
+                    </div><!-- /.box-body -->
+                </div><!-- /. box -->
+            </div><!-- /.col -->
+        </div>
     </section>
 </div>
-@section Scripts {
-    <script>
-        $('#calendar').fullCalendar({
-            events: [
-                {
-                    title: 'event1',
-                    start: '2019-01-01'
-                },
-                {
-                    title: 'event2',
-                    start: '2019-01-05',
-                    end: '2019-01-07'
-                },
-                {
-                    title: 'event3',
-                    start: '2019-01-09T12:30:00',
-                    allDay: false // will make the time show
-                }
-            ]
-        });
-    </script>
-    }
