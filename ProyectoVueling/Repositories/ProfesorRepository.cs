@@ -19,7 +19,7 @@ namespace ProyectoVueling.Repositories
 
         public async Task<Profesor> GetAsync(int id)
         {
-            var responseString = await _httpClient.GetStringAsync("");
+            var responseString = await _httpClient.GetStringAsync(Urls_Azure.GetUriById(Urls_Azure.PROFESORES, id));
 
             var catalog = JsonConvert.DeserializeObject<Profesor>(responseString);
 
@@ -28,13 +28,11 @@ namespace ProyectoVueling.Repositories
 
         public async Task<IEnumerable<Profesor>> GetAsync()
         {
-            var responseString = await _httpClient.GetStringAsync("");
+            var responseString = await _httpClient.GetStringAsync(Urls_Azure.GetUri(Urls_Azure.PROFESORES));
 
             var catalog = JsonConvert.DeserializeObject<List< Profesor>>(responseString);
 
             return catalog;
         }
-
-
     }
 }
