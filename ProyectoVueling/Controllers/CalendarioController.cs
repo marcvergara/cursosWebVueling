@@ -6,11 +6,25 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using ProyectoVueling.Models;
+using ProyectoVueling.Repositories;
 
 namespace VuelingAcademy.Controllers
 {
     public class CalendarioController : Controller
     {
+        public CalendarioController(IRepository<Modulo> modulosRepo, IRepository<Profesor> profesoresRepo, IRepository<Curso> cursosRepo, IRepository<CursoImpartido> impartidosRepo)
+        {
+            ModulosRepo = modulosRepo;
+            ProfesoresRepo = profesoresRepo;
+            CursosRepo = cursosRepo;
+            ImpartidosRepo = impartidosRepo;
+        }
+
+        public IRepository<Modulo> ModulosRepo { get; set; }
+        public IRepository<Profesor> ProfesoresRepo { get; set; }
+        public IRepository<Curso> CursosRepo { get; set; }
+        public IRepository<CursoImpartido> ImpartidosRepo { get; set; }
+
         #region Index method  
 
         /// <summary>  

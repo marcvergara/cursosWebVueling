@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ProyectoVueling.Models;
+using ProyectoVueling.Repositories;
 
 namespace ProyectoVueling
 {
@@ -38,6 +39,12 @@ namespace ProyectoVueling
 
             var connection = @"Server=tcp:desaprendiendodb.database.windows.net,1433;Initial Catalog=desaprendiendoDB;Persist Security Info=False;User ID=jacintoaisa;Password=kz8tnzkz!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             services.AddDbContext<DesaprendiendoDBContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IRepository<Modulo>, ModulosRepository>();
+            services.AddScoped<IRepository<Profesor>, ProfesorRepository>();
+            services.AddScoped<IRepository<Curso>, CursoRepository>();
+            services.AddScoped<IRepository<CursoImpartido>, CursoImpartidoRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
