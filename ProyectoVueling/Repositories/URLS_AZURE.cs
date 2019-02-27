@@ -2,7 +2,7 @@
 {
     public static class Urls_Azure
     {
-        public const string BASE_URL = "https://wcfodatacursosvuelings.azurewebsites.net/AcademiaVueling.svc/";
+        public const string BASE_URL = "https://wcfodatacursosvuelings.azurewebsites.net/WcfDataServiceAcademia.svc/";
         public const string MODULOS = "Modulo";
         public const string PROFESORES = "Profesor";
         public const string CURSOS = "Curso";
