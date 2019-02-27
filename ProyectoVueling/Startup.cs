@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ProyectoVueling.Models;
 using ProyectoVueling.Repositories;
+using System.Net.Http;
 
 namespace ProyectoVueling
 {
@@ -36,14 +37,14 @@ namespace ProyectoVueling
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+                       
             var connection = @"Server=tcp:desaprendiendodb.database.windows.net,1433;Initial Catalog=desaprendiendoDB;Persist Security Info=False;User ID=jacintoaisa;Password=kz8tnzkz!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             services.AddDbContext<DesaprendiendoDBContext>(options => options.UseSqlServer(connection));
 
-            services.AddScoped<IRepository<Modulo>, ModulosRepository>();
-            services.AddScoped<IRepository<Profesor>, ProfesorRepository>();
-            services.AddScoped<IRepository<Curso>, CursoRepository>();
-            services.AddScoped<IRepository<CursoImpartido>, CursoImpartidoRepository>();
+            services.AddHttpClient<IRepository<Modulo>, ModulosRepository>();
+            services.AddHttpClient<IRepository<Profesor>, ProfesorRepository>();
+            services.AddHttpClient<IRepository<Curso>, CursoRepository>();
+            services.AddHttpClient<IRepository<CursoImpartido>, CursoImpartidoRepository>();
 
         }
 
