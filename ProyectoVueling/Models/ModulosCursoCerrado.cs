@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ProyectoVueling.Models
+﻿namespace ProyectoVueling.Models
 {
     public partial class ModulosCursoCerrado
     {

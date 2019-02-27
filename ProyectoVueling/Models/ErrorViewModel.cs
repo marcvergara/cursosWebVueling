@@ -1,5 +1,3 @@
-using System;
-
 namespace ProyectoVueling.Models
 {
     public class ErrorViewModel
