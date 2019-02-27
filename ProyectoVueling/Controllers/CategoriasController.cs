@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoVueling.Models;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
 using Microsoft.AspNetCore.Http;
 
 namespace ProyectoVueling.Controllers
