@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -53,11 +55,22 @@ namespace ProyectoVueling.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SubCategoria1,Categoria,ComentarioHtml,ImagenMiniatura,ImagenGrande")] SubCategoria subCategoria)
+        [ValidateAntiForgeryToken] // [Bind("Id,SubCategoria1,Categoria,ComentarioHtml,ImagenMiniatura,ImagenGrande")] SubCategoria subCategoria
+        public async Task<IActionResult> Create(SubCategoria subCategoria, IFormFile ImagenMiniatura, IFormFile ImagenGrande)
         {
+            if (ImagenGrande != null)
+            {
+                subCategoria.ImagenGrande = GetByteArrayFromImage(ImagenGrande);
+            }
+
+            if (ImagenMiniatura != null)
+            {
+                subCategoria.ImagenMiniatura = GetByteArrayFromImage(ImagenMiniatura);
+            }
+
             if (ModelState.IsValid)
             {
+                //subCategoria.Id = (_context.SubCategoria.Select(x => x.Id).Max()) + 1;
                 _context.Add(subCategoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,8 +100,8 @@ namespace ProyectoVueling.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SubCategoria1,Categoria,ComentarioHtml,ImagenMiniatura,ImagenGrande")] SubCategoria subCategoria)
+        [ValidateAntiForgeryToken] // Edit(int id, [Bind("Id,SubCategoria1,Categoria,ComentarioHtml,ImagenMiniatura,ImagenGrande")] SubCategoria subCategoria)
+        public async Task<IActionResult> Edit(int id, SubCategoria subCategoria, IFormFile ImagenMiniatura, IFormFile ImagenGrande)
         {
             if (id != subCategoria.Id)
             {
@@ -152,6 +165,15 @@ namespace ProyectoVueling.Controllers
         private bool SubCategoriaExists(int id)
         {
             return _context.SubCategoria.Any(e => e.Id == id);
+        }
+
+        private byte[] GetByteArrayFromImage(IFormFile file)
+        {
+            using (var target = new MemoryStream())
+            {
+                file.CopyTo(target);
+                return target.ToArray();
+            }
         }
     }
 }
